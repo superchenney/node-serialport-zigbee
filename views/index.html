@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>桥梁压力监测与道闸控制系统</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/img/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="道闸控制系统"/>
+  <link rel="apple-touch-icon-precomposed" href="/img/app-icon72x72@2x.png">
+  <meta name="msapplication-TileImage" content="/img/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel='stylesheet' href='/stylesheets/index.css' />
+  <style type="text/css">
+  a {text-decoration: none}
+	a:hover {text-decoration: underline;}
+  .am-btn {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 0.5em 1em;
+  vertical-align: middle;
+  font-size: 1.6rem;
+  font-weight: normal;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: background-color 300ms ease-out, border-color 300ms ease-out;
+          transition: background-color 300ms ease-out, border-color 300ms ease-out;
+}
+.am-btn-primary {
+  color: #ffffff;
+  background-color: #0e90d2;
+  border-color: #0e90d2;
+}
+.am-btn-danger {
+  color: #ffffff;
+  background-color: #dd514c;
+  border-color: #dd514c;
+}
+.indexStyle{
+ /* position: absolute;
+  top:60%;
+  left: 40%;*/
+  z-index: 999;
+  width:100%;
+  margin-left: 70px;
+}
+  </style>
+  <script type="text/javascript" src="javascripts/openlink.js"></script>
+  </head>
+  <body>
+
+
+  <div class="indexStyle">
+  <h2>欢迎进入</h2>
+  <h4>桥梁压力监测与道闸控制系统</h4>
+ 
+  <a href="/login" class="am-btn am-btn-primary">登录</a>
+  <a href="/register" class="am-btn am-btn-danger">注册</a>
+
+  </div> 
+
+  
+
+  <div class='base'>
+  <div class='bridge'>
+    <div class='tower tower--1'>
+      <div class='pillar-container'>
+        <div class='pillar pillar--1'>
+          <div class='pillar_side pillar_side--1'></div>
+          <div class='pillar_side pillar_side--2'></div>
+          <div class='pillar_side pillar_side--3'></div>
+          <div class='pillar_side pillar_side--4'></div>
+          <div class='pillar__top'>
+            <div class='line line--reverse'>
+              <div class='line-part'>
+                <div class='line-part'>
+                  <div class='line-part'>
+                    <div class='line-part'>
+                      <div class='line-part'>
+                        <div class='line-part'>
+                          <div class='line-part'>
+                            <div class='line-part'>
+                              <div class='line-part'>
+                                <div class='line-part'></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='line line--inner'>
+              <div class='line-part'>
+                <div class='line-part'>
+                  <div class='line-part'>
+                    <div class='line-part'>
+                      <div class='line-part'>
+                        <div class='line-part'>
+                          <div class='line-part'>
+                            <div class='line-part'>
+                              <div class='line-part'>
+                                <div class='line-part'>
+                                  <div class='line-part'>
+                                    <div class='line-part'>
+                                      <div class='line-part'>
+                                        <div class='line-part'>
+                                          <div class='line-part'>
+                                            <div class='line-part'>
+                                              <div class='line-part'>
+                                                <div class='line-part'>
+                                                  <div class='line-part'>
+                                                    <div class='line-part'></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='bar bar--1'></div>
+        <div class='bar bar--2'></div>
+        <div class='bar bar--3'></div>
+        <div class='bar bar--4'></div>
+        <div class='bar bar--5'></div>
+        <div class='pillar pillar--2'>
+          <div class='pillar_side pillar_side--1'></div>
+          <div class='pillar_side pillar_side--2'></div>
+          <div class='pillar_side pillar_side--3'></div>
+          <div class='pillar_side pillar_side--4'></div>
+          <div class='pillar__top'>
+            <div class='line line--reverse'>
+              <div class='line-part'>
+                <div class='line-part'>
+                  <div class='line-part'>
+                    <div class='line-part'>
+                      <div class='line-part'>
+                        <div class='line-part'>
+                          <div class='line-part'>
+                            <div class='line-part'>
+                              <div class='line-part'>
+                                <div class='line-part'></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='line line--inner'>
+              <div class='line-part'>
+                <div class='line-part'>
+                  <div class='line-part'>
+                    <div class='line-part'>
+                      <div class='line-part'>
+                        <div class='line-part'>
+                          <div class='line-part'>
+                            <div class='line-part'>
+                              <div class='line-part'>
+                                <div class='line-part'>
+                                  <div class='line-part'>
+                                    <div class='line-part'>
+                                      <div class='line-part'>
+                                        <div class='line-part'>
+                                          <div class='line-part'>
+                                            <div class='line-part'>
+                                              <div class='line-part'>
+                                                <div class='line-part'>
+                                                  <div class='line-part'>
+                                                    <div class='line-part'></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='foot'>
+        <div class='foot_side foot_side--1'></div>
+        <div class='foot_side foot_side--2'></div>
+        <div class='foot_side foot_side--3'></div>
+        <div class='foot_side foot_side--4'></div>
+      </div>
+    </div>
+    <div class='tower tower--2'>
+      <div class='pillar-container'>
+        <div class='pillar pillar--1'>
+          <div class='pillar_side pillar_side--1'></div>
+          <div class='pillar_side pillar_side--2'></div>
+          <div class='pillar_side pillar_side--3'></div>
+          <div class='pillar_side pillar_side--4'></div>
+          <div class='pillar__top'>
+            <div class='line'>
+              <div class='line-part'>
+                <div class='line-part'>
+                  <div class='line-part'>
+                    <div class='line-part'>
+                      <div class='line-part'>
+                        <div class='line-part'>
+                          <div class='line-part'>
+                            <div class='line-part'>
+                              <div class='line-part'>
+                                <div class='line-part'></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='line line--reverse line--inner'>
+              <div class='line-part'>
+                <div class='line-part'>
+                  <div class='line-part'>
+                    <div class='line-part'>
+                      <div class='line-part'>
+                        <div class='line-part'>
+                          <div class='line-part'>
+                            <div class='line-part'>
+                              <div class='line-part'>
+                                <div class='line-part'>
+                                  <div class='line-part'>
+                                    <div class='line-part'>
+                                      <div class='line-part'>
+                                        <div class='line-part'>
+                                          <div class='line-part'>
+                                            <div class='line-part'>
+                                              <div class='line-part'>
+                                                <div class='line-part'>
+                                                  <div class='line-part'>
+                                                    <div class='line-part'></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='bar bar--1'></div>
+        <div class='bar bar--2'></div>
+        <div class='bar bar--3'></div>
+        <div class='bar bar--4'></div>
+        <div class='bar bar--5'></div>
+        <div class='pillar pillar--2'>
+          <div class='pillar_side pillar_side--1'></div>
+          <div class='pillar_side pillar_side--2'></div>
+          <div class='pillar_side pillar_side--3'></div>
+          <div class='pillar_side pillar_side--4'></div>
+          <div class='pillar__top'>
+            <div class='line'>
+              <div class='line-part'>
+                <div class='line-part'>
+                  <div class='line-part'>
+                    <div class='line-part'>
+                      <div class='line-part'>
+                        <div class='line-part'>
+                          <div class='line-part'>
+                            <div class='line-part'>
+                              <div class='line-part'>
+                                <div class='line-part'></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='line line--reverse line--inner'>
+              <div class='line-part'>
+                <div class='line-part'>
+                  <div class='line-part'>
+                    <div class='line-part'>
+                      <div class='line-part'>
+                        <div class='line-part'>
+                          <div class='line-part'>
+                            <div class='line-part'>
+                              <div class='line-part'>
+                                <div class='line-part'>
+                                  <div class='line-part'>
+                                    <div class='line-part'>
+                                      <div class='line-part'>
+                                        <div class='line-part'>
+                                          <div class='line-part'>
+                                            <div class='line-part'>
+                                              <div class='line-part'>
+                                                <div class='line-part'>
+                                                  <div class='line-part'>
+                                                    <div class='line-part'></div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='foot'>
+        <div class='foot_side foot_side--1'></div>
+        <div class='foot_side foot_side--2'></div>
+        <div class='foot_side foot_side--3'></div>
+        <div class='foot_side foot_side--4'></div>
+      </div>
+    </div>
+    <div class='road'>
+      <div class='road__section'>
+        <div class='road__section'>
+          <div class='road__section'>
+            <div class='road__section'>
+              <div class='road__section'>
+                <div class='road__section'>
+                  <div class='road__section'>
+                    <div class='road__section'>
+                      <div class='road__section'>
+                        <div class='road__section'></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </body>
+</html>

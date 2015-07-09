@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>桥梁压力监测与道闸控制系统</title>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="/img/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="道闸控制系统"/>
+  <link rel="apple-touch-icon-precomposed" href="/img/app-icon72x72@2x.png">
+  <meta name="msapplication-TileImage" content="/img/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css" media="screen">
+	<style type="text/css">
+	.m15{ margin: 15px;}
+ 	.tc{ text-align: center;font-size: 18px;font-weight: 600;}
+ 	body{
+ 		background-color: #F9F4E2;
+ 	}
+	</style>
+<script type="text/javascript" src="javascripts/openlink.js"></script>
+</head>
+<body screen_capture_injected="true">
+	<div class="container">
+	<%- message %>
+		<form class="col-sm-offset-4 col-sm-4 form-horizontal" role="form" method="post" onsubmit="return false">
+			<fieldset>
+				<legend></legend>
+				<div class="panel panel-default">
+				<div class="panel-heading">
+					<p class="tc">请先登录</p>
+				</div>
+				<div class="panel-body m15">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock"></span>
+						</span>
+						<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" required>
+					</div>
+				</div>
+				<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-block" id="login0">登录</button>
+				</div>
+				<div class="form-group">
+						<button type="button" class="btn btn-info col-sm-2 col-sm-offset-10" id="register0">注册</button>
+				</div>
+				</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(function(){ 
+		$("#register0").click(function(){ 
+			location.href = 'register';
+		});
+		$("#login0").click(function(){ 
+			var username = $("#username").val();
+			var password = $("#password").val();
+			var data = {"uname":username,"upwd":password};
+			$.ajax({ 
+				url:'/login',
+				type:'post',
+				data: data,
+				success: function(data,status){ 
+					if(status == 'success'){ 
+						location.href = 'home';
+					}
+				},
+				error: function(data,status){ 
+					if(status == 'error'){ 
+						location.href = 'login';
+					}
+				}
+			});
+		});
+	});
+	</script>
+</body>
+</head>
+</html>

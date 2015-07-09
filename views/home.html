@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="/stylesheets/amazeui.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+    <script src="/javascripts/jquery.min.js"></script>
+
+
+    <style type="text/css">
+      .chenneyH {
+         height: 600px;
+         }
+    </style>
+<script type="text/javascript" src="javascripts/openlink.js"></script>
+  </head>
+  <body>
+
+
+  <!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>桥梁压力监测与道闸控制系统</strong> <small>后台管理界面</small>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <!-- <ul class="am-list admin-sidebar-list">
+        <li><a href="/home"><span class="am-icon-home"></span> 首页</a></li>
+        <li><a href="/logout"><span class="am-icon-sign-out"></span> 注销</a></li>
+      </ul> -->
+      
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <div class="am-btn-block am-btn ">闸门情况：<span class=" " id="zhamen">等待初始化</span></div>
+          <div class="am-btn-block am-btn ">压力情况：<span class=" " id="yali">未过载</span></div>
+          <div class="am-btn-block am-btn ">联动情况：<span class=" " id="liandong">未启动</span></div>
+          <!-- <p>压力情况：<span class=" " id="yali">过载</span></p>
+          <p>联动情况：<span class=" " id="liandong">开启</span></p> -->
+        </div>
+      </div>
+
+    
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <button id='unlock' class="am-panel-bd am-btn am-btn-block am-btn-secondary">
+          开启闸门
+        </button>
+      </div>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <button id='lock' class="am-panel-bd am-btn am-btn-block am-btn-danger">
+          关闭闸门
+        </button> 
+      </div>
+
+
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd am-btn am-btn-block am-btn-secondary">
+          开启联动
+        </div>
+      </div>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd am-btn am-btn-block am-btn-danger">
+          关闭联动
+        </div>
+      </div>
+
+      
+      <ul class="am-list admin-sidebar-list">
+       <!--  <li><a href="/"><span class="am-icon-home"></span>    首页</a></li>
+ -->        <li><a href="/logout" class="am-btn am-btn-block am-btn-default"><span class="am-icon-power-off"></span>  退出登录</a></li>
+      </ul>
+
+      
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+
+
+
+
+  <!-- content start -->
+  <div class="admin-content chenneyH">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">后台记录</strong> / <small>过载与闸门情况</small></div>
+    </div>
+
+    <div class="am-g">
+<!--       <div class="am-u-sm-12 am-u-md-6">
+        <div class="am-btn-toolbar">
+          <div class="am-btn-group am-btn-group-xs">
+            <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+            <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
+            <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
+            <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+          </div>
+        </div>
+      </div> -->
+      <div class="am-u-sm-12 am-u-md-3">
+        <div class="am-form-group">
+          <select data-am-selected="{btnSize: 'sm'}">
+            <option value="option1">所有类别</option>
+            <option value="option2">1号闸门</option>
+            <option value="option3">2号闸门</option>
+            <option value="option3">开启情况</option>
+            <option value="option3">关闭情况</option>
+            <option value="option3">过载</option>
+            <option value="option3">未过载</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="am-u-sm-12 am-u-md-3">
+        <div class="am-input-group am-input-group-sm">
+          <input type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">搜索</button>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+<!--         <form class="am-form"> -->
+          <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th class="table-id">ID</th>
+                <th class="table-title">闸门号</th>
+                <th class="table-type">闸门操作</th>
+                <th class="table-yali">压力检测</th>
+                <th class="table-author am-hide-sm-only">操作用户</th>
+                <th class="table-date am-hide-sm-only">日期</th>
+              </tr>
+          </thead>
+          <tbody>
+
+
+
+          <% for(var i=0; i<item.length;i++) {%>
+            <tr>
+              <td><%= i+1 %></td>
+              <td><%=item[i].gatename%></td>
+              <td><%=item[i].operate%></td>
+              <td><%=item[i].pressure%></td>
+              <td class="am-hide-sm-only"><%=item[i].username%></td>
+              <td class="am-hide-sm-only"><%=item[i].date%></td>
+          <% } %>
+            </tr>
+
+
+
+
+
+
+
+          </tbody>
+        </table>
+
+<!--           <div class="am-cf">
+              共 15 条记录
+             <div class="am-fr">
+               <ul class="am-pagination">
+                 <li class="am-active"><a href="#">1</a></li>
+                 <li><a href="#">2</a></li>
+                 <li><a href="#">3</a></li>
+                 <li><a href="#">4</a></li>
+                 <li><a href="#">5</a></li>
+                 <li><a href="#">»</a></li>
+               </ul>
+             </div> 
+            </div> -->
+          
+<!--         </form> -->
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+
+
+ <hr>
+ <footer class="am-footer am-footer-default">
+  <div class="am-footer-miscs ">
+    <p>桥梁压力监测与道闸控制系统</p>
+    <p>@物联网课程实践小组</p>
+  </div>
+</footer>
+
+
+
+
+<script type="text/javascript">
+
+$(function(){ 
+
+var item = {};   
+
+    $("#lock").click(function(){ 
+      $('#zhamen').html('关闭').css('color','red');
+
+      $.ajax({ 
+        url: '/lock',
+        type: 'POST',
+        datatype:'json',
+       success: function(data){
+          if(data){
+            console.log('成功收到数据了');
+            console.log('接收到的数据 data:' + data);
+          }else{
+            console.log('没有收到数据')
+          }
+        },
+        error: function(data,err){ 
+            console.log('意外，未成功打开闸门 ！'); }
+      }); //ajax
+    });   //lock
+
+
+
+    $("#unlock").click(function(){ 
+      $('#zhamen').html('打开').css('color','#00c351');
+
+      $.ajax({ 
+        url: '/unlock',
+        type: 'post',
+        datatype:'json',
+        success: function(data){
+          if(data){
+            console.log('成功收到数据了');
+            console.log('接收到的数据 data :' + data);
+          }else{
+            console.log('没有收到数据')
+          }
+        },
+        error: function(data,err){ 
+            console.log('意外，未成功打开闸门 ！'); }
+      }); //ajax
+
+    });   //unlock
+
+
+  })
+
+</script>
+
+<!-- <footer >
+  <hr>
+  <p class="am-padding-left">© 2015 桥梁压力监测与道闸控制系统.<small>后台管理</small></p>
+</footer> -->
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="javascripts/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/javascripts/jquery.min.js"></script>
+<!--<![endif]-->
+
+<script src="/javascripts/amazeui.min.js"></script>
+<!-- 
+<script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script> -->
+
+<script src="/javascripts/app.js"></script>
+  </body>
+</html>
