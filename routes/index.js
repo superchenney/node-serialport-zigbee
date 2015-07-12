@@ -135,26 +135,26 @@ serialPortC.list(function (err, ports) {
   });
 });
 
-//串口参数
-// var SerialPort = require("serialport").SerialPort
-// var serialPort = new SerialPort("/dev/cu.usbserial", {
-//   baudrate: 9600
-// });
+// 串口参数
+var SerialPort = require("serialport").SerialPort
+var serialPort = new SerialPort("/dev/cu.usbserial", {
+  baudrate: 115200
+});
  
-// //组网成功打印
-// serialPort.open(function (error) {
-//   if ( error ) {
-//     console.log('failed to open: '+error);
-//   } else {
-//     console.log('串口open');
-//     serialPort.once('data', function(data) {
-//       	// console.log('data received: ' + data);
-//       	var dataRecive = new Buffer(data,'utf8');
-//       	var zuwang = dataRecive.toString('hex')
-//       	console.log('组网成功: ' + zuwang);
-//     });
-//   }
-// });
+//组网成功打印
+serialPort.open(function (error) {
+  if ( error ) {
+    console.log('failed to open: '+error);
+  } else {
+    console.log('串口open');
+    serialPort.on('data', function(data) {
+      	// console.log('data received: ' + data);
+      	var dataRecive = new Buffer(data,'utf8');
+      	var zuwang = dataRecive.toString('hex')
+      	console.log('组网成功: ' + zuwang);
+    });
+  }
+});
 
 
 var kaimen = new Buffer('2657534E434E411B00000000000000000000000000000100454E44','hex')
@@ -197,50 +197,73 @@ function openGate(){
 
 
 
-function saveInfo(){
-//数据库保存
- 			   var Gate = global.dbHandel.getModel('gate');
+
+// function showInfo(req,res){
+// 		var Gate = global.dbHandel.getModel('gate');
+// 		Gate.find({},function(err,doc){
+// 						if(err){ 					
+// 							console.log(err);
+// 						}else{
+// 							// var item = doc;
+// 							console.log('记录 item : ' + doc);
+// 							router.get("/home",function(req,res){
+// 								res.render("home",{title:'控制台页面',item:doc});
+// 							})
+// 							}	//else
+// 					})	//Gate
+// 	}	//showInofo
+
+
+
+
+
+//关闭道闸
+router.route('/lock').post(function(req,res){
+		closeGate();
+	  var Gate = global.dbHandel.getModel('gate');
  			 		 	 Gate.create({
  			    		 	gatename: '一号闸门',
  			    	  	username: '管理员',
  			    	  	pressure: '未测量',
  			    	  	Address: '小区西门',
- 			    	  	operate: "关闭闸门",									//var oprerate 调用 ！！！注意
+ 			    	  	operate: '关闭闸门',	
  			    	  	meta: {}
  			    	  })
- 			 		console.log('*****  数据保存   ******')
-}
+ 			 		console.log('*****  数据已保存   ******')
 
-function showInfo(req,res){
-		var Gate = global.dbHandel.getModel('gate');
-		Gate.find({},function(err,doc){
-						if(err){ 					
-							console.log(err);
-						}else{
-							// var item = doc;
-							console.log('记录 item : ' + doc);
-							router.get("/home",function(req,res){
-								res.render("home",{title:'控制台页面',item:doc});
-							})
-							}	//else
-					})	//Gate
-	}	//showInofo
-
-//关闭道闸
-router.route('/lock').post(function(req,res){
-		// closeGate();
-		// saveInfo();
-		// showInfo(req,res);
 })
 
 //开启道闸
 router.route('/unlock').post(function(req,res){
-	// openGate();
-	// saveInfo();
-	// showInfo(req,res);
+	openGate();
+	var Gate = global.dbHandel.getModel('gate');
+ 			 		 	 Gate.create({
+ 			    		 	gatename: '一号闸门',
+ 			    	  	username: '管理员',
+ 			    	  	pressure: '未测量',
+ 			    	  	Address: '小区西门',
+ 			    	  	operate: '打开闸门',	
+ 			    	  	meta: {}
+ 			    	  })
+ 			 		console.log('*****  数据已保存   ******')
 })
 
-//显示记录
+
+// //数据库保存
+// function saveInfo(){
+//  			   var Gate = global.dbHandel.getModel('gate');
+//  			 		 	 Gate.create({
+//  			    		 	gatename: '一号闸门',
+//  			    	  	username: '管理员',
+//  			    	  	pressure: '未测量',
+//  			    	  	Address: '小区西门',
+//  			    	  	operate: actionz,	
+//  			    	  	meta: {}
+//  			    	  })
+//  			 		console.log('*****  数据已保存   ******')
+// }
+
+
 
 
 
@@ -250,8 +273,6 @@ router.get("/logout",function(req,res){    // 到达 /logout 路径则登出， 
 	req.session.error = null;
 	res.redirect("/");
 });
-
-
 
 
 module.exports = router;

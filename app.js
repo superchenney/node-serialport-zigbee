@@ -24,7 +24,7 @@ var app = express();
 global.dbHandel = require('./database/dbHandel');
 global.db = mongoose.connect("mongodb://localhost:27017/nodedb");
 
-// var app = express();
+
 
 app.use(session({ 
 	secret: 'secret',

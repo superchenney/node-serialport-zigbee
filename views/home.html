@@ -21,20 +21,17 @@
 
 
     <style type="text/css">
-      .chenneyH {
+/*      .chenneyH {
          height: 600px;
-         }
+         }*/
     </style>
 <script type="text/javascript" src="javascripts/openlink.js"></script>
   </head>
   <body>
-
-
   <!--[if lte IE 9]>
 <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
   以获得更好的体验！</p>
 <![endif]-->
-
 <header class="am-topbar admin-header">
   <div class="am-topbar-brand">
     <strong>桥梁压力监测与道闸控制系统</strong> <small>后台管理界面</small>
@@ -60,7 +57,6 @@
           <p>联动情况：<span class=" " id="liandong">开启</span></p> -->
         </div>
       </div>
-
     
       <div class="am-panel am-panel-default admin-sidebar-panel">
         <button id='unlock' class="am-panel-bd am-btn am-btn-block am-btn-secondary">
@@ -73,8 +69,6 @@
           关闭闸门
         </button> 
       </div>
-
-
 
       <div class="am-panel am-panel-default admin-sidebar-panel">
         <div class="am-panel-bd am-btn am-btn-block am-btn-secondary">
@@ -91,16 +85,13 @@
       
       <ul class="am-list admin-sidebar-list">
        <!--  <li><a href="/"><span class="am-icon-home"></span>    首页</a></li>
- -->        <li><a href="/logout" class="am-btn am-btn-block am-btn-default"><span class="am-icon-power-off"></span>  退出登录</a></li>
+ -->    <li><a href="/logout" class="am-btn am-btn-block am-btn-default"><span class="am-icon-power-off"></span>  退出登录</a></li>
       </ul>
 
       
     </div>
   </div>
   <!-- sidebar end -->
-
-
-
 
 
   <!-- content start -->
@@ -111,16 +102,6 @@
     </div>
 
     <div class="am-g">
-<!--       <div class="am-u-sm-12 am-u-md-6">
-        <div class="am-btn-toolbar">
-          <div class="am-btn-group am-btn-group-xs">
-            <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-            <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
-            <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
-            <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
-          </div>
-        </div>
-      </div> -->
       <div class="am-u-sm-12 am-u-md-3">
         <div class="am-form-group">
           <select data-am-selected="{btnSize: 'sm'}">
@@ -147,8 +128,6 @@
     </div>
 
 
-
-
     <div class="am-g">
       <div class="am-u-sm-12">
 <!--         <form class="am-form"> -->
@@ -164,9 +143,6 @@
               </tr>
           </thead>
           <tbody>
-
-
-
           <% for(var i=0; i<item.length;i++) {%>
             <tr>
               <td><%= i+1 %></td>
@@ -177,31 +153,8 @@
               <td class="am-hide-sm-only"><%=item[i].date%></td>
           <% } %>
             </tr>
-
-
-
-
-
-
-
           </tbody>
         </table>
-
-<!--           <div class="am-cf">
-              共 15 条记录
-             <div class="am-fr">
-               <ul class="am-pagination">
-                 <li class="am-active"><a href="#">1</a></li>
-                 <li><a href="#">2</a></li>
-                 <li><a href="#">3</a></li>
-                 <li><a href="#">4</a></li>
-                 <li><a href="#">5</a></li>
-                 <li><a href="#">»</a></li>
-               </ul>
-             </div> 
-            </div> -->
-          
-<!--         </form> -->
       </div>
     </div>
   </div>
@@ -245,7 +198,7 @@ var item = {};
           }
         },
         error: function(data,err){ 
-            console.log('意外，未成功打开闸门 ！'); }
+            console.log('意外，未成功关闭闸门 ！'); }
       }); //ajax
     });   //lock
 
@@ -269,12 +222,10 @@ var item = {};
         error: function(data,err){ 
             console.log('意外，未成功打开闸门 ！'); }
       }); //ajax
-
     });   //unlock
 
 
   })
-
 </script>
 
 <!-- <footer >
