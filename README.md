@@ -1,6 +1,6 @@
 # web控制步进电机控制道闸开关
 
-标签（空格分隔）:node.js zigbee javascript 
+标签:node.js zigbee javascript 
 
 ---
 
