@@ -8,24 +8,12 @@
   <meta http-equiv="Cache-Control" content="no-siteapp"/>
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="mobile-web-app-capable" content="yes">
-
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
   <meta name="msapplication-TileColor" content="#0e90d2">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    <link rel="stylesheet" href="/stylesheets/amazeui.min.css"/>
-    <link rel="stylesheet" href="/stylesheets/admin.css">
-    <script src="/javascripts/jquery.min.js"></script>
-
-
-    <style type="text/css">
-/*      .chenneyH {
-         height: 600px;
-         }*/
-    </style>
-<script type="text/javascript" src="javascripts/openlink.js"></script>
+  <link rel="stylesheet" href="/stylesheets/amazeui.min.css"/>
+  <link rel="stylesheet" href="/stylesheets/admin.css">
   </head>
   <body>
   <!--[if lte IE 9]>
@@ -43,18 +31,11 @@
   <!-- sidebar start -->
   <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
     <div class="am-offcanvas-bar admin-offcanvas-bar">
-      <!-- <ul class="am-list admin-sidebar-list">
-        <li><a href="/home"><span class="am-icon-home"></span> 首页</a></li>
-        <li><a href="/logout"><span class="am-icon-sign-out"></span> 注销</a></li>
-      </ul> -->
-      
       <div class="am-panel am-panel-default admin-sidebar-panel">
         <div class="am-panel-bd">
           <div class="am-btn-block am-btn ">闸门情况：<span class=" " id="zhamen">等待初始化</span></div>
           <div class="am-btn-block am-btn ">压力情况：<span class=" " id="yali">未过载</span></div>
           <div class="am-btn-block am-btn ">联动情况：<span class=" " id="liandong">未启动</span></div>
-          <!-- <p>压力情况：<span class=" " id="yali">过载</span></p>
-          <p>联动情况：<span class=" " id="liandong">开启</span></p> -->
         </div>
       </div>
     
@@ -175,7 +156,6 @@
 
 
 
-
 <script type="text/javascript">
 
 $(function(){ 
@@ -191,7 +171,6 @@ var item = {};
         datatype:'json',
        success: function(data){
           if(data){
-            console.log('成功收到数据了');
             console.log('接收到的数据 data:' + data);
           }else{
             console.log('没有收到数据')
@@ -213,7 +192,6 @@ var item = {};
         datatype:'json',
         success: function(data){
           if(data){
-            console.log('成功收到数据了');
             console.log('接收到的数据 data :' + data);
           }else{
             console.log('没有收到数据')
@@ -242,11 +220,10 @@ var item = {};
 <!--[if (gte IE 9)|!(IE)]><!-->
 <script src="/javascripts/jquery.min.js"></script>
 <!--<![endif]-->
-
 <script src="/javascripts/amazeui.min.js"></script>
 <!-- 
 <script src="http://cdn.amazeui.org/amazeui/2.4.2/js/amazeui.min.js"></script> -->
-
 <script src="/javascripts/app.js"></script>
+<script type="text/javascript" src="javascripts/openlink.js"></script>
   </body>
 </html>

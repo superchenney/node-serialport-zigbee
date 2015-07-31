@@ -7,23 +7,14 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var mongoose = require('mongoose');
 var session = require('express-session');
-
 var SerialPort = require("serialport").SerialPort;
-
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var app = express();
 
-//chenney
-
-// var serialPort = new SerialPort("/dev/cu.usbserial", { 
-//  baudrate: 9600 
-// }, false); // this is the openImmediately flag [default is true]
-
 
 global.dbHandel = require('./database/dbHandel');
 global.db = mongoose.connect("mongodb://localhost:27017/nodedb");
-
 
 
 app.use(session({ 
@@ -33,15 +24,12 @@ app.use(session({
 	}
 }));
 
-// view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
-app.engine("html",require("ejs").__express); // or   app.engine("html",require("ejs").renderFile);
-//app.set("view engine","ejs");
+app.engine("html",require("ejs").__express);
 app.set('view engine', 'html');
 
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -62,32 +50,23 @@ app.use(function(req,res,next){
 });
 
 
-app.use('/', routes);  // 即为为路径 / 设置路由
-
-app.use('/users', users); // 即为为路径 /users 设置路由
-
-app.use('/login',routes); // 即为为路径 /login 设置路由
-app.use('/register',routes); // 即为为路径 /register 设置路由
-app.use('/home',routes); // 即为为路径 /home 设置路由
-app.use("/logout",routes); // 即为为路径 /logout 设置路由
-
-
-
-app.use("/lock",routes); // 即为为路径 /lock 设置路由
-app.use("/unlock",routes); // 即为为路径 /unlock 设置路由
+app.use('/', routes);
+app.use('/login',routes); 
+app.use('/register',routes); 
+app.use('/home',routes);
+app.use("/logout",routes);
+app.use("/lock",routes);
+app.use("/unlock",routes);
+app.use('/users', users);
 
 
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handlers
 
-// development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -98,8 +77,7 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-// no stacktraces leaked to user
+
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
@@ -107,96 +85,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-
-
-
-//chenney
-//串口读
-
-
-// // 打印所有串口
-// var serialport = require("serialport");
-
-//   serialport.list(function (err, ports) {
-//      ports.forEach(function(port) {
-//         console.log('打印所有串口'+port.comName);
-//         console.log(port.pnpId);
-//         console.log(port.manufacturer);
-//       });
-//   });
-
-
-
-
-
-
-
-
-
-// serialPort.open(function (error) {
-//   if ( error ) {
-//     console.log('failed to open: '+error);
-//   } else {
-//     console.log('Serialport is Opened');
-
-
-//     serialPort.on('data', function(data) {
-//       var buff = new Buffer(data,'utf8');
-//       console.log('data received: ' + buff.toString('hex'));
-//     });
-
-
-//       var guanmen = new Buffer('2657534E434E411B00000000000000000000000000010000454E44','hex')
-//       var kaimen = new Buffer('2657534E434E411B00000000000000000000000000000100454E44','hex')
-
-
-
-//  serialPort.write(guanmen, function(err, results) {
-//       if(err){
-//         console.log('write err ' + err);
-//       }else{
-//         console.log('write results ' + results);
-//       }
-//     }); 
-
-//   }
-// });
-
-
-
-
-
-
-// // serialport
-
-// var SerialPort = require("serialport").SerialPort
-// var serialPort = new SerialPort("/dev/cu.usbserial", {
-//   baudrate: 9600
-// }); // this is the openImmediately flag [default is true] 
- 
-
-
-// serialPort.open(function (error) {
-//   if ( error ) {
-//     console.log('failed to open: '+error);
-//   } else {
-//     console.log('串口open');
-//     serialPort.on('data', function(data) {
-//       // console.log('data received: ' + data);
-//       var datachen = new Buffer(data,'utf8');
-//       console.log('data received: ' + datachen.toString('hex'));
-//     });
-//   }
-// });
-
-
-
-
-
-
-
-
 
 module.exports = app;
